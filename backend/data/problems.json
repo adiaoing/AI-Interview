@@ -1,0 +1,1870 @@
+[
+  {
+    "id": 49,
+    "title": "Group Anagrams",
+    "difficulty": "Medium",
+    "category": "Array & HashMap",
+    "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.\n\nAn Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+    "examples": [
+      {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
+      },
+      {
+        "input": "strs = [\"\"]",
+        "output": "[[\"\"]]"
+      }
+    ],
+    "constraints": [
+      "1 <= strs.length <= 10^4",
+      "0 <= strs[i].length <= 100",
+      "strs[i] consists of lowercase English letters"
+    ],
+    "starterCode": {
+      "python": "from collections import defaultdict\nfrom typing import List\n\ndef groupAnagrams(strs: List[str]) -> List[List[str]]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nline = sys.stdin.read().strip()\nstrs = line.split()\nresult = groupAnagrams(strs)\nresult.sort(key=lambda x: sorted(x))\nfor g in result:\n    print(' '.join(sorted(g)))",
+      "javascript": "function groupAnagrams(strs) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst strs = lines[0].split(' ');\nconst result = groupAnagrams(strs);\nresult.sort((a,b) => a[0].localeCompare(b[0]));\nresult.forEach(g => console.log([...g].sort().join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "eat tea tan ate nat bat",
+        "expectedOutput": "bat\nant nat\naet ate eat tea"
+      }
+    ]
+  },
+  {
+    "id": 560,
+    "title": "Subarray Sum Equals K",
+    "difficulty": "Medium",
+    "category": "Array & HashMap",
+    "description": "Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+    "examples": [
+      {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "2"
+      },
+      {
+        "input": "nums = [1,2,3], k = 3",
+        "output": "2"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 2 * 10^4",
+      "-1000 <= nums[i] <= 1000",
+      "-10^7 <= k <= 10^7"
+    ],
+    "starterCode": {
+      "python": "from collections import defaultdict\nfrom typing import List\n\ndef subarraySum(nums: List[int], k: int) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\nk = int(lines[1])\nprint(subarraySum(nums, k))",
+      "javascript": "function subarraySum(nums, k) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst nums = lines[0].split(' ').map(Number);\nconst k = Number(lines[1]);\nconsole.log(subarraySum(nums, k));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 1 1\n2",
+        "expectedOutput": "2"
+      },
+      {
+        "stdin": "1 2 3\n3",
+        "expectedOutput": "2"
+      }
+    ]
+  },
+  {
+    "id": 523,
+    "title": "Continuous Subarray Sum",
+    "difficulty": "Medium",
+    "category": "Array & HashMap",
+    "description": "Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.\n\nA good subarray is a subarray where:\n- its length is at least two, and\n- the sum of the elements of the subarray is a multiple of k.\n\nNote that 0 is always a multiple of k.",
+    "examples": [
+      {
+        "input": "nums = [23,2,4,6,7], k = 6",
+        "output": "true",
+        "explanation": "[2,4] is a continuous subarray of size 2 whose elements sum up to 6."
+      },
+      {
+        "input": "nums = [23,2,6,4,7], k = 13",
+        "output": "false"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "0 <= nums[i] <= 10^9",
+      "0 <= sum(nums[i]) <= 2^31 - 1",
+      "1 <= k <= 2^31 - 1"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef checkSubarraySum(nums: List[int], k: int) -> bool:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\nk = int(lines[1])\nprint(str(checkSubarraySum(nums, k)).lower())",
+      "javascript": "function checkSubarraySum(nums, k) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst nums = lines[0].split(' ').map(Number);\nconst k = Number(lines[1]);\nconsole.log(String(checkSubarraySum(nums, k)).toLowerCase());"
+    },
+    "testCases": [
+      {
+        "stdin": "23 2 4 6 7\n6",
+        "expectedOutput": "true"
+      },
+      {
+        "stdin": "23 2 6 4 7\n13",
+        "expectedOutput": "false"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "examples": [
+      {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "The answer is \"abc\", with the length of 3."
+      },
+      {
+        "input": "s = \"bbbbb\"",
+        "output": "1",
+        "explanation": "The answer is \"b\", with the length of 1."
+      }
+    ],
+    "constraints": [
+      "0 <= s.length <= 5 * 10^4",
+      "s consists of English letters, digits, symbols and spaces"
+    ],
+    "starterCode": {
+      "python": "def lengthOfLongestSubstring(s: str) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\ns = sys.stdin.read().strip()\nprint(lengthOfLongestSubstring(s))",
+      "javascript": "function lengthOfLongestSubstring(s) {\n    // Your solution here\n}\n\nconst s = require('fs').readFileSync('/dev/stdin','utf8').trim();\nconsole.log(lengthOfLongestSubstring(s));"
+    },
+    "testCases": [
+      {
+        "stdin": "abcabcbb",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "bbbbb",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "pwwkew",
+        "expectedOutput": "3"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\".\n\nThe testcases will be generated such that the answer is unique.",
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "The minimum window substring BANC includes A, B, and C from string t."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\""
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "Both a's from t must be included in the window."
+      }
+    ],
+    "constraints": [
+      "m == s.length",
+      "n == t.length",
+      "1 <= m, n <= 10^5",
+      "s and t consist of uppercase and lowercase English letters"
+    ],
+    "starterCode": {
+      "python": "def minWindow(s: str, t: str) -> str:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\ns = lines[0]\nt = lines[1]\nprint(minWindow(s, t))",
+      "javascript": "function minWindow(s, t) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(minWindow(lines[0], lines[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "ADOBECODEBANC\nABC",
+        "expectedOutput": "BANC"
+      },
+      {
+        "stdin": "a\na",
+        "expectedOutput": "a"
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "title": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "description": "You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.\n\nReturn the max sliding window.",
+    "examples": [
+      {
+        "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+        "output": "[3,3,5,5,6,7]"
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4",
+      "1 <= k <= nums.length"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import List\n\ndef maxSlidingWindow(nums: List[int], k: int) -> List[int]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\nk = int(lines[1])\nprint(' '.join(map(str, maxSlidingWindow(nums, k))))",
+      "javascript": "function maxSlidingWindow(nums, k) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst nums = lines[0].split(' ').map(Number);\nconst k = Number(lines[1]);\nconsole.log(maxSlidingWindow(nums, k).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 3 -1 -3 5 3 6 7\n3",
+        "expectedOutput": "3 3 5 5 6 7"
+      },
+      {
+        "stdin": "1\n1",
+        "expectedOutput": "1"
+      }
+    ]
+  },
+  {
+    "id": 438,
+    "title": "Find All Anagrams in a String",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "description": "Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.\n\nAn Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+    "examples": [
+      {
+        "input": "s = \"cbaebabacd\", p = \"abc\"",
+        "output": "[0,6]",
+        "explanation": "The substring with start index 0 is \"cba\", which is an anagram of \"abc\". The substring with start index 6 is \"bac\", which is an anagram of \"abc\"."
+      }
+    ],
+    "constraints": [
+      "1 <= s.length, p.length <= 3 * 10^4",
+      "s and p consist of lowercase English letters"
+    ],
+    "starterCode": {
+      "python": "from collections import Counter\nfrom typing import List\n\ndef findAnagrams(s: str, p: str) -> List[int]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\ns = lines[0]\np = lines[1]\nprint(' '.join(map(str, findAnagrams(s, p))))",
+      "javascript": "function findAnagrams(s, p) {\n    // Your solution here\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(findAnagrams(lines[0], lines[1]).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "cbaebabacd\nabc",
+        "expectedOutput": "0 6"
+      },
+      {
+        "stdin": "abab\nab",
+        "expectedOutput": "0 1 2"
+      }
+    ]
+  },
+  {
+    "id": 206,
+    "title": "Reverse Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[5,4,3,2,1]"
+      },
+      {
+        "input": "head = [1,2]",
+        "output": "[2,1]"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is the range [0, 5000]",
+      "-5000 <= Node.val <= 5000"
+    ],
+    "starterCode": {
+      "python": "from typing import Optional\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef reverseList(head: Optional[ListNode]) -> Optional[ListNode]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nvals = list(map(int, sys.stdin.read().strip().split()))\nhead = None\nfor v in reversed(vals):\n    head = ListNode(v, head)\nresult = reverseList(head)\nout = []\nwhile result:\n    out.append(str(result.val))\n    result = result.next\nprint(' '.join(out))",
+      "javascript": "class ListNode {\n    constructor(val = 0, next = null) {\n        this.val = val;\n        this.next = next;\n    }\n}\n\nfunction reverseList(head) {\n    // Your solution here\n}\n\nconst vals = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nlet head = null;\nfor (let i = vals.length - 1; i >= 0; i--) head = new ListNode(vals[i], head);\nlet res = reverseList(head);\nconst out = [];\nwhile (res) { out.push(res.val); res = res.next; }\nconsole.log(out.join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3 4 5",
+        "expectedOutput": "5 4 3 2 1"
+      },
+      {
+        "stdin": "1 2",
+        "expectedOutput": "2 1"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Remove Nth Node From End of List",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "description": "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
+    "examples": [
+      {
+        "input": "head = [1,2,3,4,5], n = 2",
+        "output": "[1,2,3,5]"
+      },
+      {
+        "input": "head = [1], n = 1",
+        "output": "[]"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is sz",
+      "1 <= sz <= 30",
+      "0 <= Node.val <= 100",
+      "1 <= n <= sz"
+    ],
+    "starterCode": {
+      "python": "from typing import Optional\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nvals = list(map(int, lines[0].split()))\nn = int(lines[1])\nhead = None\nfor v in reversed(vals):\n    head = ListNode(v, head)\nresult = removeNthFromEnd(head, n)\nout = []\nwhile result:\n    out.append(str(result.val))\n    result = result.next\nprint(' '.join(out) if out else 'empty')",
+      "javascript": "class ListNode {\n    constructor(val = 0, next = null) { this.val = val; this.next = next; }\n}\nfunction removeNthFromEnd(head, n) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst vals = lines[0].split(' ').map(Number);\nlet head = null;\nfor (let i = vals.length-1; i>=0; i--) head = new ListNode(vals[i], head);\nlet res = removeNthFromEnd(head, Number(lines[1]));\nconst out = [];\nwhile (res) { out.push(res.val); res = res.next; }\nconsole.log(out.length ? out.join(' ') : 'empty');"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3 4 5\n2",
+        "expectedOutput": "1 2 3 5"
+      },
+      {
+        "stdin": "1\n1",
+        "expectedOutput": "empty"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "title": "Linked List Cycle",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer.\n\nReturn true if there is a cycle in the linked list. Otherwise, return false.\n\nHint: Use Floyd's Tortoise and Hare algorithm.",
+    "examples": [
+      {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "true",
+        "explanation": "There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed)."
+      },
+      {
+        "input": "head = [1,2], pos = 0",
+        "output": "true"
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "false"
+      }
+    ],
+    "constraints": [
+      "The number of the nodes in the list is in the range [0, 10^4]",
+      "-10^5 <= Node.val <= 10^5",
+      "pos is -1 or a valid index in the linked-list"
+    ],
+    "starterCode": {
+      "python": "from typing import Optional\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef hasCycle(head: Optional[ListNode]) -> bool:\n    # Your solution here (use Floyd's algorithm)\n    pass\n\n# --- stdin test harness ---\n# Input: \"vals... pos\" where pos=-1 means no cycle\nimport sys\nparts = sys.stdin.read().strip().split()\npos = int(parts[-1])\nvals = list(map(int, parts[:-1]))\nnodes = [ListNode(v) for v in vals]\nfor i in range(len(nodes)-1):\n    nodes[i].next = nodes[i+1]\nif pos >= 0 and pos < len(nodes):\n    nodes[-1].next = nodes[pos]\nhead = nodes[0] if nodes else None\nprint(str(hasCycle(head)).lower())",
+      "javascript": "class ListNode {\n    constructor(val=0,next=null){this.val=val;this.next=next;}\n}\nfunction hasCycle(head) {\n    // Your solution here\n}\nconst parts = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconst pos = Number(parts[parts.length-1]);\nconst vals = parts.slice(0,-1).map(Number);\nconst nodes = vals.map(v => new ListNode(v));\nfor (let i=0;i<nodes.length-1;i++) nodes[i].next=nodes[i+1];\nif (pos>=0&&pos<nodes.length) nodes[nodes.length-1].next=nodes[pos];\nconst head = nodes[0]||null;\nconsole.log(String(hasCycle(head)).toLowerCase());"
+    },
+    "testCases": [
+      {
+        "stdin": "3 2 0 -4 1",
+        "expectedOutput": "true"
+      },
+      {
+        "stdin": "1 -1",
+        "expectedOutput": "false"
+      }
+    ]
+  },
+  {
+    "id": 287,
+    "title": "Find the Duplicate Number",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "description": "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.\n\nThere is only one repeated number in nums, return this repeated number.\n\nYou must solve the problem without modifying the array nums and uses only constant extra space.\n\nHint: Use Floyd's Tortoise and Hare (cycle detection) algorithm by treating the array as a linked list.",
+    "examples": [
+      {
+        "input": "nums = [1,3,4,2,2]",
+        "output": "2"
+      },
+      {
+        "input": "nums = [3,1,3,4,2]",
+        "output": "3"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10^5",
+      "nums.length == n + 1",
+      "1 <= nums[i] <= n",
+      "All the integers in nums appear only once except for precisely one integer which appears two or more times"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef findDuplicate(nums: List[int]) -> int:\n    # Your solution here (Floyd's cycle detection)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(findDuplicate(nums))",
+      "javascript": "function findDuplicate(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(findDuplicate(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 3 4 2 2",
+        "expectedOutput": "2"
+      },
+      {
+        "stdin": "3 1 3 4 2",
+        "expectedOutput": "3"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Merge k Sorted Lists",
+    "difficulty": "Hard",
+    "category": "Linked List",
+    "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.\n\nMerge all the linked-lists into one sorted linked-list and return it.",
+    "examples": [
+      {
+        "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+        "output": "[1,1,2,3,4,4,5,6]"
+      },
+      {
+        "input": "lists = []",
+        "output": "[]"
+      }
+    ],
+    "constraints": [
+      "k == lists.length",
+      "0 <= k <= 10^4",
+      "0 <= lists[i].length <= 500",
+      "-10^4 <= lists[i][j] <= 10^4",
+      "lists[i] is sorted in ascending order"
+    ],
+    "starterCode": {
+      "python": "import heapq\nfrom typing import List, Optional\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef mergeKLists(lists: List[Optional[ListNode]]) -> Optional[ListNode]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\n# Input: each line is a sorted list (space-separated), blank line = empty list\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nk = int(lines[0])\nlinked_lists = []\nfor i in range(1, k+1):\n    vals = list(map(int, lines[i].split())) if i < len(lines) and lines[i].strip() else []\n    head = None\n    for v in reversed(vals):\n        head = ListNode(v, head)\n    linked_lists.append(head)\nresult = mergeKLists(linked_lists)\nout = []\nwhile result:\n    out.append(str(result.val))\n    result = result.next\nprint(' '.join(out))",
+      "javascript": "class ListNode {\n    constructor(val=0,next=null){this.val=val;this.next=next;}\n}\nfunction mergeKLists(lists) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst k = Number(lines[0]);\nconst lls = [];\nfor (let i=1;i<=k;i++){\n    const vals = lines[i]?lines[i].split(' ').map(Number):[];\n    let h=null; for(let j=vals.length-1;j>=0;j--) h=new ListNode(vals[j],h);\n    lls.push(h);\n}\nlet res = mergeKLists(lls);\nconst out=[]; while(res){out.push(res.val);res=res.next;}\nconsole.log(out.join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "3\n1 4 5\n1 3 4\n2 6",
+        "expectedOutput": "1 1 2 3 4 4 5 6"
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "title": "Kth Largest Element in an Array",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "description": "Given an integer array nums and an integer k, return the kth largest element in the array.\n\nNote that it is the kth largest element in the sorted order, not the kth distinct element.\n\nCan you solve it without sorting?",
+    "examples": [
+      {
+        "input": "nums = [3,2,1,5,6,4], k = 2",
+        "output": "5"
+      },
+      {
+        "input": "nums = [3,2,3,1,2,4,5,5,6], k = 4",
+        "output": "4"
+      }
+    ],
+    "constraints": [
+      "1 <= k <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4"
+    ],
+    "starterCode": {
+      "python": "import heapq\nfrom typing import List\n\ndef findKthLargest(nums: List[int], k: int) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\nk = int(lines[1])\nprint(findKthLargest(nums, k))",
+      "javascript": "function findKthLargest(nums, k) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(findKthLargest(lines[0].split(' ').map(Number), Number(lines[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 2 1 5 6 4\n2",
+        "expectedOutput": "5"
+      },
+      {
+        "stdin": "3 2 3 1 2 4 5 5 6\n4",
+        "expectedOutput": "4"
+      }
+    ]
+  },
+  {
+    "id": 973,
+    "title": "K Closest Points to Origin",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "description": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).\n\nThe distance between two points on the X-Y plane is the Euclidean distance (i.e., sqrt(x^2 + y^2)).\n\nYou may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).",
+    "examples": [
+      {
+        "input": "points = [[1,3],[-2,2]], k = 1",
+        "output": "[[-2,2]]",
+        "explanation": "The distance between (1,3) and the origin is sqrt(10). The distance between (-2,2) and the origin is sqrt(8). Since sqrt(8) < sqrt(10), (-2,2) is closer to the origin."
+      },
+      {
+        "input": "points = [[3,3],[5,-1],[-2,4]], k = 2",
+        "output": "[[3,3],[-2,4]]"
+      }
+    ],
+    "constraints": [
+      "1 <= k <= points.length <= 10^4",
+      "-10^4 <= xi, yi <= 10^4"
+    ],
+    "starterCode": {
+      "python": "import heapq\nfrom typing import List\n\ndef kClosest(points: List[List[int]], k: int) -> List[List[int]]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn, k = map(int, lines[0].split())\npoints = [list(map(int, lines[i+1].split())) for i in range(n)]\nresult = kClosest(points, k)\nresult.sort()\nfor p in result:\n    print(p[0], p[1])",
+      "javascript": "function kClosest(points, k) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [n, k] = lines[0].split(' ').map(Number);\nconst points = [];\nfor (let i=1;i<=n;i++) points.push(lines[i].split(' ').map(Number));\nconst res = kClosest(points, k);\nres.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);\nres.forEach(p=>console.log(p[0]+' '+p[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 1\n1 3\n-2 2",
+        "expectedOutput": "-2 2"
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "title": "Top K Frequent Elements",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
+    "examples": [
+      {
+        "input": "nums = [1,1,1,2,2,3], k = 2",
+        "output": "[1,2]"
+      },
+      {
+        "input": "nums = [1], k = 1",
+        "output": "[1]"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4",
+      "k is in the range [1, the number of unique elements in the array]",
+      "It is guaranteed that the answer is unique"
+    ],
+    "starterCode": {
+      "python": "from collections import Counter\nimport heapq\nfrom typing import List\n\ndef topKFrequent(nums: List[int], k: int) -> List[int]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\nk = int(lines[1])\nprint(' '.join(map(str, sorted(topKFrequent(nums, k)))))",
+      "javascript": "function topKFrequent(nums, k) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst nums = lines[0].split(' ').map(Number);\nconst k = Number(lines[1]);\nconsole.log([...topKFrequent(nums,k)].sort((a,b)=>a-b).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 1 1 2 2 3\n2",
+        "expectedOutput": "1 2"
+      },
+      {
+        "stdin": "1\n1",
+        "expectedOutput": "1"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "title": "Find Minimum in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Modified Binary Search",
+    "description": "Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2] if it was rotated 4 times.\n\nGiven the sorted rotated array nums of unique elements, return the minimum element of this array.\n\nYou must write an algorithm that runs in O(log n) time.",
+    "examples": [
+      {
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1"
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2]",
+        "output": "0"
+      }
+    ],
+    "constraints": [
+      "n == nums.length",
+      "1 <= n <= 5000",
+      "-5000 <= nums[i] <= 5000",
+      "All the integers of nums are unique",
+      "nums is sorted and rotated between 1 and n times"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef findMin(nums: List[int]) -> int:\n    # Your solution here (binary search, O(log n))\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(findMin(nums))",
+      "javascript": "function findMin(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(findMin(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 4 5 1 2",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "4 5 6 7 0 1 2",
+        "expectedOutput": "0"
+      },
+      {
+        "stdin": "11 13 15 17",
+        "expectedOutput": "11"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Search in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Modified Binary Search",
+    "description": "There is an integer array nums sorted in ascending order (with distinct values).\n\nPrior to being passed to your function, nums is possibly rotated at an unknown pivot index k such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]].\n\nGiven the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.\n\nYou must write an algorithm with O(log n) runtime complexity.",
+    "examples": [
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4"
+      },
+      {
+        "input": "nums = [4,5,6,7,0,1,2], target = 3",
+        "output": "-1"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5000",
+      "-10^4 <= nums[i] <= 10^4",
+      "All values in nums are unique",
+      "nums is an ascending array that is possibly rotated",
+      "-10^4 <= target <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef search(nums: List[int], target: int) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnums = list(map(int, lines[0].split()))\ntarget = int(lines[1])\nprint(search(nums, target))",
+      "javascript": "function search(nums, target) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(search(lines[0].split(' ').map(Number), Number(lines[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "4 5 6 7 0 1 2\n0",
+        "expectedOutput": "4"
+      },
+      {
+        "stdin": "4 5 6 7 0 1 2\n3",
+        "expectedOutput": "-1"
+      }
+    ]
+  },
+  {
+    "id": 875,
+    "title": "Koko Eating Bananas",
+    "difficulty": "Medium",
+    "category": "Modified Binary Search",
+    "description": "Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.\n\nKoko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.\n\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\n\nReturn the minimum integer k such that she can eat all the bananas within h hours.",
+    "examples": [
+      {
+        "input": "piles = [3,6,7,11], h = 8",
+        "output": "4"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5",
+        "output": "30"
+      }
+    ],
+    "constraints": [
+      "1 <= piles.length <= 10^4",
+      "piles.length <= h <= 10^9",
+      "1 <= piles[i] <= 10^9"
+    ],
+    "starterCode": {
+      "python": "import math\nfrom typing import List\n\ndef minEatingSpeed(piles: List[int], h: int) -> int:\n    # Your solution here (binary search on answer)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\npiles = list(map(int, lines[0].split()))\nh = int(lines[1])\nprint(minEatingSpeed(piles, h))",
+      "javascript": "function minEatingSpeed(piles, h) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(minEatingSpeed(lines[0].split(' ').map(Number), Number(lines[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 6 7 11\n8",
+        "expectedOutput": "4"
+      },
+      {
+        "stdin": "30 11 23 4 20\n5",
+        "expectedOutput": "30"
+      }
+    ]
+  },
+  {
+    "id": 1011,
+    "title": "Capacity to Ship Packages Within D Days",
+    "difficulty": "Medium",
+    "category": "Modified Binary Search",
+    "description": "A conveyor belt has packages that must be shipped from one port to another within days days.\n\nThe ith package on the conveyor belt has a weight of weights[i]. Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship.\n\nReturn the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within days days.",
+    "examples": [
+      {
+        "input": "weights = [1,2,3,4,5,6,7,8,9,10], days = 5",
+        "output": "15"
+      },
+      {
+        "input": "weights = [3,2,2,4,1,4], days = 3",
+        "output": "6"
+      }
+    ],
+    "constraints": [
+      "1 <= days <= weights.length <= 5 * 10^4",
+      "1 <= weights[i] <= 500"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef shipWithinDays(weights: List[int], days: int) -> int:\n    # Your solution here (binary search on capacity)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nweights = list(map(int, lines[0].split()))\ndays = int(lines[1])\nprint(shipWithinDays(weights, days))",
+      "javascript": "function shipWithinDays(weights, days) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(shipWithinDays(lines[0].split(' ').map(Number), Number(lines[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3 4 5 6 7 8 9 10\n5",
+        "expectedOutput": "15"
+      },
+      {
+        "stdin": "3 2 2 4 1 4\n3",
+        "expectedOutput": "6"
+      }
+    ]
+  },
+  {
+    "id": 739,
+    "title": "Daily Temperatures",
+    "difficulty": "Medium",
+    "category": "Monotonic Stack",
+    "description": "Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.",
+    "examples": [
+      {
+        "input": "temperatures = [73,74,75,71,69,72,76,73]",
+        "output": "[1,1,4,2,1,1,0,0]"
+      },
+      {
+        "input": "temperatures = [30,40,50,60]",
+        "output": "[1,1,1,0]"
+      }
+    ],
+    "constraints": [
+      "1 <= temperatures.length <= 10^5",
+      "30 <= temperatures[i] <= 100"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef dailyTemperatures(temperatures: List[int]) -> List[int]:\n    # Your solution here (monotonic decreasing stack)\n    pass\n\n# --- stdin test harness ---\nimport sys\ntemps = list(map(int, sys.stdin.read().strip().split()))\nprint(' '.join(map(str, dailyTemperatures(temps))))",
+      "javascript": "function dailyTemperatures(temperatures) {\n    // Your solution here\n}\nconst temps = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(dailyTemperatures(temps).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "73 74 75 71 69 72 76 73",
+        "expectedOutput": "1 1 4 2 1 1 0 0"
+      },
+      {
+        "stdin": "30 40 50 60",
+        "expectedOutput": "1 1 1 0"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "title": "Largest Rectangle in Histogram",
+    "difficulty": "Hard",
+    "category": "Monotonic Stack",
+    "description": "Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.",
+    "examples": [
+      {
+        "input": "heights = [2,1,5,6,2,3]",
+        "output": "10",
+        "explanation": "The largest rectangle has an area of 10 units."
+      },
+      {
+        "input": "heights = [2,4]",
+        "output": "4"
+      }
+    ],
+    "constraints": [
+      "1 <= heights.length <= 10^5",
+      "0 <= heights[i] <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef largestRectangleArea(heights: List[int]) -> int:\n    # Your solution here (monotonic increasing stack)\n    pass\n\n# --- stdin test harness ---\nimport sys\nheights = list(map(int, sys.stdin.read().strip().split()))\nprint(largestRectangleArea(heights))",
+      "javascript": "function largestRectangleArea(heights) {\n    // Your solution here\n}\nconst heights = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(largestRectangleArea(heights));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 1 5 6 2 3",
+        "expectedOutput": "10"
+      },
+      {
+        "stdin": "2 4",
+        "expectedOutput": "4"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "3Sum",
+    "difficulty": "Medium",
+    "category": "Two Pointers",
+    "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.\n\nNotice that the solution set must not contain duplicate triplets.",
+    "examples": [
+      {
+        "input": "nums = [-1,0,1,2,-1,-4]",
+        "output": "[[-1,-1,2],[-1,0,1]]"
+      },
+      {
+        "input": "nums = [0,1,1]",
+        "output": "[]"
+      },
+      {
+        "input": "nums = [0,0,0]",
+        "output": "[[0,0,0]]"
+      }
+    ],
+    "constraints": [
+      "3 <= nums.length <= 3000",
+      "-10^5 <= nums[i] <= 10^5"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef threeSum(nums: List[int]) -> List[List[int]]:\n    # Your solution here (sort + two pointers)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nresult = threeSum(nums)\nresult.sort()\nfor t in result:\n    print(' '.join(map(str, t)))",
+      "javascript": "function threeSum(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconst res = threeSum(nums);\nres.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);\nres.forEach(t=>console.log(t.join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "-1 0 1 2 -1 -4",
+        "expectedOutput": "-1 -1 2\n-1 0 1"
+      },
+      {
+        "stdin": "0 0 0",
+        "expectedOutput": "0 0 0"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Container With Most Water",
+    "difficulty": "Medium",
+    "category": "Two Pointers",
+    "description": "You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).\n\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\n\nReturn the maximum amount of water a container can store.\n\nNotice that you may not slant the container.",
+    "examples": [
+      {
+        "input": "height = [1,8,6,2,5,4,8,3,7]",
+        "output": "49"
+      },
+      {
+        "input": "height = [1,1]",
+        "output": "1"
+      }
+    ],
+    "constraints": [
+      "n == height.length",
+      "2 <= n <= 10^5",
+      "0 <= height[i] <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef maxArea(height: List[int]) -> int:\n    # Your solution here (two pointer approach)\n    pass\n\n# --- stdin test harness ---\nimport sys\nheight = list(map(int, sys.stdin.read().strip().split()))\nprint(maxArea(height))",
+      "javascript": "function maxArea(height) {\n    // Your solution here\n}\nconst height = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(maxArea(height));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 8 6 2 5 4 8 3 7",
+        "expectedOutput": "49"
+      },
+      {
+        "stdin": "1 1",
+        "expectedOutput": "1"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "title": "Two Sum II - Input Array is Sorted",
+    "difficulty": "Medium",
+    "category": "Two Pointers",
+    "description": "Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.\n\nReturn the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.\n\nThe tests are generated such that there is exactly one solution. You may not use the same element twice.",
+    "examples": [
+      {
+        "input": "numbers = [2,7,11,15], target = 9",
+        "output": "[1,2]"
+      },
+      {
+        "input": "numbers = [2,3,4], target = 6",
+        "output": "[1,3]"
+      }
+    ],
+    "constraints": [
+      "2 <= numbers.length <= 3 * 10^4",
+      "-1000 <= numbers[i] <= 1000",
+      "numbers is sorted in non-decreasing order",
+      "-1000 <= target <= 1000"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef twoSum(numbers: List[int], target: int) -> List[int]:\n    # Your solution here (two pointers, O(1) space)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nnumbers = list(map(int, lines[0].split()))\ntarget = int(lines[1])\nprint(' '.join(map(str, twoSum(numbers, target))))",
+      "javascript": "function twoSum(numbers, target) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(twoSum(lines[0].split(' ').map(Number), Number(lines[1])).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 7 11 15\n9",
+        "expectedOutput": "1 2"
+      },
+      {
+        "stdin": "2 3 4\n6",
+        "expectedOutput": "1 3"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "title": "Maximum Depth of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "description": "Given the root of a binary tree, return its maximum depth.\n\nA binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "3"
+      },
+      {
+        "input": "root = [1,null,2]",
+        "output": "2"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [0, 10^4]",
+      "-100 <= Node.val <= 100"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import Optional\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef maxDepth(root: Optional[TreeNode]) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\n# Input: BFS level-order, -1 = null\nimport sys\nvals = sys.stdin.read().strip().split()\nif not vals or vals == ['-1']:\n    print(maxDepth(None))\nelse:\n    nodes = [TreeNode(int(v)) if v != '-1' else None for v in vals]\n    for i in range(len(nodes)):\n        if nodes[i]:\n            l = 2*i+1; r = 2*i+2\n            if l < len(nodes): nodes[i].left = nodes[l]\n            if r < len(nodes): nodes[i].right = nodes[r]\n    print(maxDepth(nodes[0]))",
+      "javascript": "class TreeNode {\n    constructor(val=0,left=null,right=null){this.val=val;this.left=left;this.right=right;}\n}\nfunction maxDepth(root) {\n    // Your solution here\n}\nconst vals = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconst nodes = vals.map(v => v==='-1'?null:new TreeNode(Number(v)));\nfor(let i=0;i<nodes.length;i++) if(nodes[i]){\n    if(2*i+1<nodes.length) nodes[i].left=nodes[2*i+1];\n    if(2*i+2<nodes.length) nodes[i].right=nodes[2*i+2];\n}\nconsole.log(maxDepth(nodes[0]||null));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 9 20 -1 -1 15 7",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "1 -1 2",
+        "expectedOutput": "2"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "title": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "description": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).",
+    "examples": [
+      {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "[[3],[9,20],[15,7]]"
+      },
+      {
+        "input": "root = [1]",
+        "output": "[[1]]"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [0, 2000]",
+      "-1000 <= Node.val <= 1000"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import Optional, List\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef levelOrder(root: Optional[TreeNode]) -> List[List[int]]:\n    # Your solution here (BFS)\n    pass\n\n# --- stdin test harness ---\nimport sys\nvals = sys.stdin.read().strip().split()\nif not vals or vals == ['-1']:\n    print(levelOrder(None))\nelse:\n    nodes = [TreeNode(int(v)) if v != '-1' else None for v in vals]\n    for i in range(len(nodes)):\n        if nodes[i]:\n            l = 2*i+1; r = 2*i+2\n            if l < len(nodes): nodes[i].left = nodes[l]\n            if r < len(nodes): nodes[i].right = nodes[r]\n    result = levelOrder(nodes[0])\n    for level in result:\n        print(' '.join(map(str, level)))",
+      "javascript": "class TreeNode {\n    constructor(val=0,left=null,right=null){this.val=val;this.left=left;this.right=right;}\n}\nfunction levelOrder(root) {\n    // Your solution here\n}\nconst vals = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconst nodes = vals.map(v => v==='-1'?null:new TreeNode(Number(v)));\nfor(let i=0;i<nodes.length;i++) if(nodes[i]){\n    if(2*i+1<nodes.length) nodes[i].left=nodes[2*i+1];\n    if(2*i+2<nodes.length) nodes[i].right=nodes[2*i+2];\n}\nconst res = levelOrder(nodes[0]||null);\nres.forEach(l=>console.log(l.join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 9 20 -1 -1 15 7",
+        "expectedOutput": "3\n9 20\n15 7"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "title": "Validate Binary Search Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST).\n\nA valid BST is defined as follows:\n- The left subtree of a node contains only nodes with keys less than the node's key.\n- The right subtree of a node contains only nodes with keys greater than the node's key.\n- Both the left and right subtrees must also be binary search trees.\n\nHint: Inorder traversal of a valid BST yields a sorted array.",
+    "examples": [
+      {
+        "input": "root = [2,1,3]",
+        "output": "true"
+      },
+      {
+        "input": "root = [5,1,4,null,null,3,6]",
+        "output": "false",
+        "explanation": "The root node's value is 5 but its right child's value is 4."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [1, 10^4]",
+      "-2^31 <= Node.val <= 2^31 - 1"
+    ],
+    "starterCode": {
+      "python": "from typing import Optional\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root: Optional[TreeNode]) -> bool:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nvals = sys.stdin.read().strip().split()\nnodes = [TreeNode(int(v)) if v != '-1' else None for v in vals]\nfor i in range(len(nodes)):\n    if nodes[i]:\n        l = 2*i+1; r = 2*i+2\n        if l < len(nodes): nodes[i].left = nodes[l]\n        if r < len(nodes): nodes[i].right = nodes[r]\nprint(str(isValidBST(nodes[0] if nodes else None)).lower())",
+      "javascript": "class TreeNode {\n    constructor(val=0,left=null,right=null){this.val=val;this.left=left;this.right=right;}\n}\nfunction isValidBST(root) {\n    // Your solution here\n}\nconst vals = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconst nodes = vals.map(v=>v==='-1'?null:new TreeNode(Number(v)));\nfor(let i=0;i<nodes.length;i++) if(nodes[i]){\n    if(2*i+1<nodes.length) nodes[i].left=nodes[2*i+1];\n    if(2*i+2<nodes.length) nodes[i].right=nodes[2*i+2];\n}\nconsole.log(String(isValidBST(nodes[0]||null)).toLowerCase());"
+    },
+    "testCases": [
+      {
+        "stdin": "2 1 3",
+        "expectedOutput": "true"
+      },
+      {
+        "stdin": "5 1 4 -1 -1 3 6",
+        "expectedOutput": "false"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "title": "Binary Tree Maximum Path Sum",
+    "difficulty": "Hard",
+    "category": "Trees",
+    "description": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.\n\nThe path sum of a path is the sum of the node's values in the path.\n\nGiven the root of a binary tree, return the maximum path sum of any non-empty path.",
+    "examples": [
+      {
+        "input": "root = [1,2,3]",
+        "output": "6",
+        "explanation": "The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6."
+      },
+      {
+        "input": "root = [-10,9,20,null,null,15,7]",
+        "output": "42",
+        "explanation": "The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [1, 3 * 10^4]",
+      "-1000 <= Node.val <= 1000"
+    ],
+    "starterCode": {
+      "python": "from typing import Optional\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef maxPathSum(root: Optional[TreeNode]) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nvals = sys.stdin.read().strip().split()\nnodes = [TreeNode(int(v)) if v != '-1' else None for v in vals]\nfor i in range(len(nodes)):\n    if nodes[i]:\n        l = 2*i+1; r = 2*i+2\n        if l < len(nodes): nodes[i].left = nodes[l]\n        if r < len(nodes): nodes[i].right = nodes[r]\nprint(maxPathSum(nodes[0]))",
+      "javascript": "class TreeNode {\n    constructor(val=0,left=null,right=null){this.val=val;this.left=left;this.right=right;}\n}\nfunction maxPathSum(root) {\n    // Your solution here\n}\nconst vals = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconst nodes = vals.map(v=>v==='-1'?null:new TreeNode(Number(v)));\nfor(let i=0;i<nodes.length;i++) if(nodes[i]){\n    if(2*i+1<nodes.length) nodes[i].left=nodes[2*i+1];\n    if(2*i+2<nodes.length) nodes[i].right=nodes[2*i+2];\n}\nconsole.log(maxPathSum(nodes[0]||null));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3",
+        "expectedOutput": "6"
+      },
+      {
+        "stdin": "-10 9 20 -1 -1 15 7",
+        "expectedOutput": "42"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "description": "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
+    "examples": [
+      {
+        "input": "grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]",
+        "output": "1"
+      },
+      {
+        "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]",
+        "output": "3"
+      }
+    ],
+    "constraints": [
+      "m == grid.length",
+      "n == grid[i].length",
+      "1 <= m, n <= 300",
+      "grid[i][j] is \"0\" or \"1\""
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef numIslands(grid: List[List[str]]) -> int:\n    # Your solution here (DFS/BFS flood fill)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nm, n = map(int, lines[0].split())\ngrid = [lines[i+1].split() for i in range(m)]\nprint(numIslands(grid))",
+      "javascript": "function numIslands(grid) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [m] = lines[0].split(' ').map(Number);\nconst grid = [];\nfor (let i=1;i<=m;i++) grid.push(lines[i].split(' '));\nconsole.log(numIslands(grid));"
+    },
+    "testCases": [
+      {
+        "stdin": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
+        "expectedOutput": "3"
+      }
+    ]
+  },
+  {
+    "id": 994,
+    "title": "Rotting Oranges",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "description": "You are given an m x n integer grid where each cell can have one of three values:\n- 0 representing an empty cell,\n- 1 representing a fresh orange, or\n- 2 representing a rotten orange.\n\nEvery minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.\n\nReturn the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.",
+    "examples": [
+      {
+        "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+        "output": "4"
+      },
+      {
+        "input": "grid = [[2,1,1],[0,1,1],[1,0,1]]",
+        "output": "-1"
+      }
+    ],
+    "constraints": [
+      "m == grid.length",
+      "n == grid[i].length",
+      "1 <= m, n <= 10",
+      "grid[i][j] is 0, 1, or 2"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import List\n\ndef orangesRotting(grid: List[List[int]]) -> int:\n    # Your solution here (multi-source BFS)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nm, n = map(int, lines[0].split())\ngrid = [list(map(int, lines[i+1].split())) for i in range(m)]\nprint(orangesRotting(grid))",
+      "javascript": "function orangesRotting(grid) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [m, n] = lines[0].split(' ').map(Number);\nconst grid = [];\nfor(let i=1;i<=m;i++) grid.push(lines[i].split(' ').map(Number));\nconsole.log(orangesRotting(grid));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 3\n2 1 1\n1 1 0\n0 1 1",
+        "expectedOutput": "4"
+      },
+      {
+        "stdin": "3 3\n2 1 1\n0 1 1\n1 0 1",
+        "expectedOutput": "-1"
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "title": "Course Schedule",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.\n\nReturn true if you can finish all courses. Otherwise, return false.\n\nHint: This is a cycle detection problem in a directed graph. Use topological sort (Kahn's algorithm or DFS).",
+    "examples": [
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0]]",
+        "output": "true",
+        "explanation": "There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible."
+      },
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0],[0,1]]",
+        "output": "false",
+        "explanation": "There is a cycle."
+      }
+    ],
+    "constraints": [
+      "1 <= numCourses <= 2000",
+      "0 <= prerequisites.length <= 5000",
+      "prerequisites[i].length == 2",
+      "0 <= ai, bi < numCourses",
+      "All the pairs prerequisites[i] are unique"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import List\n\ndef canFinish(numCourses: int, prerequisites: List[List[int]]) -> bool:\n    # Your solution here (topological sort)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn, m = map(int, lines[0].split())\nprereqs = [list(map(int, lines[i+1].split())) for i in range(m)]\nprint(str(canFinish(n, prereqs)).lower())",
+      "javascript": "function canFinish(numCourses, prerequisites) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [n,m] = lines[0].split(' ').map(Number);\nconst prereqs = [];\nfor(let i=1;i<=m;i++) prereqs.push(lines[i].split(' ').map(Number));\nconsole.log(String(canFinish(n,prereqs)).toLowerCase());"
+    },
+    "testCases": [
+      {
+        "stdin": "2 1\n1 0",
+        "expectedOutput": "true"
+      },
+      {
+        "stdin": "2 2\n1 0\n0 1",
+        "expectedOutput": "false"
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "title": "Course Schedule II",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.\n\nReturn the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.\n\nHint: Topological sort (Kahn's algorithm).",
+    "examples": [
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0]]",
+        "output": "[0,1]"
+      },
+      {
+        "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]",
+        "output": "[0,2,1,3]"
+      }
+    ],
+    "constraints": [
+      "1 <= numCourses <= 2000",
+      "0 <= prerequisites.length <= numCourses * (numCourses - 1)"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import List\n\ndef findOrder(numCourses: int, prerequisites: List[List[int]]) -> List[int]:\n    # Your solution here (topological sort)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn, m = map(int, lines[0].split())\nprereqs = [list(map(int, lines[i+1].split())) for i in range(m)]\nresult = findOrder(n, prereqs)\nprint(' '.join(map(str, result)))",
+      "javascript": "function findOrder(numCourses, prerequisites) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [n,m] = lines[0].split(' ').map(Number);\nconst prereqs=[];\nfor(let i=1;i<=m;i++) prereqs.push(lines[i].split(' ').map(Number));\nconsole.log(findOrder(n,prereqs).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 1\n1 0",
+        "expectedOutput": "0 1"
+      }
+    ]
+  },
+  {
+    "id": 542,
+    "title": "01 Matrix",
+    "difficulty": "Medium",
+    "category": "Graph",
+    "description": "Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.\n\nThe distance between two adjacent cells is 1.",
+    "examples": [
+      {
+        "input": "mat = [[0,0,0],[0,1,0],[0,0,0]]",
+        "output": "[[0,0,0],[0,1,0],[0,0,0]]"
+      },
+      {
+        "input": "mat = [[0,0,0],[0,1,0],[1,1,1]]",
+        "output": "[[0,0,0],[0,1,0],[1,2,1]]"
+      }
+    ],
+    "constraints": [
+      "m == mat.length",
+      "n == mat[i].length",
+      "1 <= m, n <= 10^4",
+      "1 <= m * n <= 10^4",
+      "mat[i][j] is either 0 or 1",
+      "There is at least one 0 in mat"
+    ],
+    "starterCode": {
+      "python": "from collections import deque\nfrom typing import List\n\ndef updateMatrix(mat: List[List[int]]) -> List[List[int]]:\n    # Your solution here (multi-source BFS from all 0s)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nm, n = map(int, lines[0].split())\nmat = [list(map(int, lines[i+1].split())) for i in range(m)]\nresult = updateMatrix(mat)\nfor row in result:\n    print(' '.join(map(str, row)))",
+      "javascript": "function updateMatrix(mat) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst [m,n] = lines[0].split(' ').map(Number);\nconst mat=[];\nfor(let i=1;i<=m;i++) mat.push(lines[i].split(' ').map(Number));\nupdateMatrix(mat).forEach(r=>console.log(r.join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 3\n0 0 0\n0 1 0\n1 1 1",
+        "expectedOutput": "0 0 0\n0 1 0\n1 2 1"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Permutations",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "description": "Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]"
+      },
+      {
+        "input": "nums = [0,1]",
+        "output": "[[0,1],[1,0]]"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 6",
+      "-10 <= nums[i] <= 10",
+      "All the integers of nums are unique"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef permute(nums: List[int]) -> List[List[int]]:\n    # Your solution here (backtracking)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nresult = permute(nums)\nresult.sort()\nfor p in result:\n    print(' '.join(map(str, p)))",
+      "javascript": "function permute(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconst res = permute(nums);\nres.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);\nres.forEach(p=>console.log(p.join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3",
+        "expectedOutput": "1 2 3\n1 3 2\n2 1 3\n2 3 1\n3 1 2\n3 2 1"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "title": "Subsets",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "description": "Given an integer array nums of unique elements, return all possible subsets (the power set).\n\nThe solution set must not contain duplicate subsets. Return the solution in any order.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]"
+      },
+      {
+        "input": "nums = [0]",
+        "output": "[[],[0]]"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10",
+      "-10 <= nums[i] <= 10",
+      "All the numbers of nums are unique"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef subsets(nums: List[int]) -> List[List[int]]:\n    # Your solution here (backtracking or bit manipulation)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nresult = subsets(nums)\nresult.sort(key=lambda x: (len(x), x))\nfor s in result:\n    print(' '.join(map(str, s)) if s else 'empty')",
+      "javascript": "function subsets(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconst res = subsets(nums);\nres.sort((a,b)=>a.length-b.length||a[0]-b[0]);\nres.forEach(s=>console.log(s.length?s.join(' '):'empty'));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3",
+        "expectedOutput": "empty\n1\n2\n3\n1 2\n1 3\n2 3\n1 2 3"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.\n\nThe same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.",
+    "examples": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7",
+        "output": "[[2,2,3],[7]]"
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8",
+        "output": "[[2,2,2,2],[2,3,3],[3,5]]"
+      }
+    ],
+    "constraints": [
+      "1 <= candidates.length <= 30",
+      "2 <= candidates[i] <= 40",
+      "All elements of candidates are distinct",
+      "1 <= target <= 40"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef combinationSum(candidates: List[int], target: int) -> List[List[int]]:\n    # Your solution here (backtracking)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\ncandidates = list(map(int, lines[0].split()))\ntarget = int(lines[1])\nresult = combinationSum(candidates, target)\nresult.sort()\nfor c in result:\n    print(' '.join(map(str, c)))",
+      "javascript": "function combinationSum(candidates, target) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst res = combinationSum(lines[0].split(' ').map(Number), Number(lines[1]));\nres.sort((a,b)=>a[0]-b[0]);\nres.forEach(c=>console.log(c.join(' ')));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 3 6 7\n7",
+        "expectedOutput": "2 2 3\n7"
+      }
+    ]
+  },
+  {
+    "id": 547,
+    "title": "Number of Provinces",
+    "difficulty": "Medium",
+    "category": "Union Find",
+    "description": "There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.\n\nA province is a group of directly or indirectly connected cities and no other cities outside of the group.\n\nYou are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.\n\nReturn the total number of provinces.",
+    "examples": [
+      {
+        "input": "isConnected = [[1,1,0],[1,1,0],[0,0,1]]",
+        "output": "2"
+      },
+      {
+        "input": "isConnected = [[1,0,0],[0,1,0],[0,0,1]]",
+        "output": "3"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 200",
+      "n == isConnected.length",
+      "n == isConnected[i].length",
+      "isConnected[i][j] is 1 or 0",
+      "isConnected[i][i] == 1",
+      "isConnected[i][j] == isConnected[j][i]"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef findCircleNum(isConnected: List[List[int]]) -> int:\n    # Your solution here (Union-Find or DFS)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn = int(lines[0])\nmatrix = [list(map(int, lines[i+1].split())) for i in range(n)]\nprint(findCircleNum(matrix))",
+      "javascript": "function findCircleNum(isConnected) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst n = Number(lines[0]);\nconst mat = [];\nfor(let i=1;i<=n;i++) mat.push(lines[i].split(' ').map(Number));\nconsole.log(findCircleNum(mat));"
+    },
+    "testCases": [
+      {
+        "stdin": "3\n1 1 0\n1 1 0\n0 0 1",
+        "expectedOutput": "2"
+      },
+      {
+        "stdin": "3\n1 0 0\n0 1 0\n0 0 1",
+        "expectedOutput": "3"
+      }
+    ]
+  },
+  {
+    "id": 684,
+    "title": "Redundant Connection",
+    "difficulty": "Medium",
+    "category": "Union Find",
+    "description": "In this problem, a tree is an undirected graph that is connected and has no cycles.\n\nYou are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two different vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph.\n\nReturn an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input.",
+    "examples": [
+      {
+        "input": "edges = [[1,2],[1,3],[2,3]]",
+        "output": "[2,3]"
+      },
+      {
+        "input": "edges = [[1,2],[2,3],[3,4],[1,4],[1,5]]",
+        "output": "[1,4]"
+      }
+    ],
+    "constraints": [
+      "n == edges.length",
+      "3 <= n <= 1000",
+      "edges[i].length == 2",
+      "1 <= ai < bi <= edges.length",
+      "ai != bi",
+      "There are no repeated edges"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef findRedundantConnection(edges: List[List[int]]) -> List[int]:\n    # Your solution here (Union-Find)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn = int(lines[0])\nedges = [list(map(int, lines[i+1].split())) for i in range(n)]\nprint(' '.join(map(str, findRedundantConnection(edges))))",
+      "javascript": "function findRedundantConnection(edges) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst n = Number(lines[0]);\nconst edges=[];\nfor(let i=1;i<=n;i++) edges.push(lines[i].split(' ').map(Number));\nconsole.log(findRedundantConnection(edges).join(' '));"
+    },
+    "testCases": [
+      {
+        "stdin": "3\n1 2\n1 3\n2 3",
+        "expectedOutput": "2 3"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "title": "Merge Intervals",
+    "difficulty": "Medium",
+    "category": "Merge Intervals",
+    "description": "Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "Since intervals [1,3] and [2,6] overlap, merge them into [1,6]."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Intervals [1,4] and [4,5] are considered overlapping."
+      }
+    ],
+    "constraints": [
+      "1 <= intervals.length <= 10^4",
+      "intervals[i].length == 2",
+      "0 <= starti <= endi <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef merge(intervals: List[List[int]]) -> List[List[int]]:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn = int(lines[0])\nintervals = [list(map(int, lines[i+1].split())) for i in range(n)]\nresult = merge(intervals)\nfor iv in result:\n    print(iv[0], iv[1])",
+      "javascript": "function merge(intervals) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst n = Number(lines[0]);\nconst intervals=[];\nfor(let i=1;i<=n;i++) intervals.push(lines[i].split(' ').map(Number));\nmerge(intervals).forEach(iv=>console.log(iv[0]+' '+iv[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "4\n1 3\n2 6\n8 10\n15 18",
+        "expectedOutput": "1 6\n8 10\n15 18"
+      },
+      {
+        "stdin": "2\n1 4\n4 5",
+        "expectedOutput": "1 5"
+      }
+    ]
+  },
+  {
+    "id": 986,
+    "title": "Interval List Intersections",
+    "difficulty": "Medium",
+    "category": "Merge Intervals",
+    "description": "You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.\n\nReturn the intersection of these two interval lists.\n\nA closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.\n\nThe intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval.",
+    "examples": [
+      {
+        "input": "firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]]",
+        "output": "[[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]"
+      }
+    ],
+    "constraints": [
+      "0 <= firstList.length, secondList.length <= 1000",
+      "firstList[i].length == 2",
+      "0 <= starti < endi <= 10^9",
+      "endi < starti+1",
+      "The lists are sorted and pairwise disjoint"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef intervalIntersection(firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:\n    # Your solution here (two pointers)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nm = int(lines[0])\nfirstList = [list(map(int, lines[i+1].split())) for i in range(m)]\nn = int(lines[m+1])\nsecondList = [list(map(int, lines[m+2+i].split())) for i in range(n)]\nresult = intervalIntersection(firstList, secondList)\nfor iv in result:\n    print(iv[0], iv[1])",
+      "javascript": "function intervalIntersection(firstList, secondList) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst m = Number(lines[0]);\nconst fl=[], sl=[];\nfor(let i=1;i<=m;i++) fl.push(lines[i].split(' ').map(Number));\nconst n = Number(lines[m+1]);\nfor(let i=0;i<n;i++) sl.push(lines[m+2+i].split(' ').map(Number));\nintervalIntersection(fl,sl).forEach(iv=>console.log(iv[0]+' '+iv[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "4\n0 2\n5 10\n13 23\n24 25\n4\n1 5\n8 12\n15 24\n25 26",
+        "expectedOutput": "1 2\n5 5\n8 10\n15 23\n24 24\n25 25"
+      }
+    ]
+  },
+  {
+    "id": 322,
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.\n\nHint: This is the classic 0/1 Knapsack / unbounded knapsack dynamic programming problem.",
+    "examples": [
+      {
+        "input": "coins = [1,5,11,15], amount = 15",
+        "output": "1"
+      },
+      {
+        "input": "coins = [1,2,5], amount = 11",
+        "output": "3",
+        "explanation": "11 = 5 + 5 + 1"
+      }
+    ],
+    "constraints": [
+      "1 <= coins.length <= 12",
+      "1 <= coins[i] <= 2^31 - 1",
+      "0 <= amount <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef coinChange(coins: List[int], amount: int) -> int:\n    # Your solution here (bottom-up DP)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\ncoins = list(map(int, lines[0].split()))\namount = int(lines[1])\nprint(coinChange(coins, amount))",
+      "javascript": "function coinChange(coins, amount) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(coinChange(lines[0].split(' ').map(Number), Number(lines[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 5\n11",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "2\n3",
+        "expectedOutput": "-1"
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "title": "House Robber",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]",
+        "output": "4",
+        "explanation": "Rob house 1 (money = 1) and then rob house 3 (money = 3). Total = 1 + 3 = 4."
+      },
+      {
+        "input": "nums = [2,7,9,3,1]",
+        "output": "12"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 100",
+      "0 <= nums[i] <= 400"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef rob(nums: List[int]) -> int:\n    # Your solution here\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(rob(nums))",
+      "javascript": "function rob(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(rob(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2 3 1",
+        "expectedOutput": "4"
+      },
+      {
+        "stdin": "2 7 9 3 1",
+        "expectedOutput": "12"
+      }
+    ]
+  },
+  {
+    "id": 1143,
+    "title": "Longest Common Subsequence",
+    "difficulty": "Medium",
+    "category": "Dynamic Programming",
+    "description": "Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.\n\nA subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.\n\nA common subsequence of two strings is a subsequence that is common to both strings.",
+    "examples": [
+      {
+        "input": "text1 = \"abcde\", text2 = \"ace\"",
+        "output": "3",
+        "explanation": "The longest common subsequence is \"ace\" and its length is 3."
+      },
+      {
+        "input": "text1 = \"abc\", text2 = \"abc\"",
+        "output": "3"
+      }
+    ],
+    "constraints": [
+      "1 <= text1.length, text2.length <= 1000",
+      "text1 and text2 consist of only lowercase English characters"
+    ],
+    "starterCode": {
+      "python": "def longestCommonSubsequence(text1: str, text2: str) -> int:\n    # Your solution here (2D DP)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nprint(longestCommonSubsequence(lines[0], lines[1]))",
+      "javascript": "function longestCommonSubsequence(text1, text2) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(longestCommonSubsequence(lines[0], lines[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "abcde\nace",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "abc\nabc",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "abc\ndef",
+        "expectedOutput": "0"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "title": "Edit Distance",
+    "difficulty": "Hard",
+    "category": "Dynamic Programming",
+    "description": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.\n\nYou have the following three operations permitted on a word:\n- Insert a character\n- Delete a character\n- Replace a character",
+    "examples": [
+      {
+        "input": "word1 = \"horse\", word2 = \"ros\"",
+        "output": "3",
+        "explanation": "horse -> rorse (replace \"h\" with \"r\") -> rose (remove \"r\") -> ros (remove \"e\")"
+      },
+      {
+        "input": "word1 = \"intention\", word2 = \"execution\"",
+        "output": "5"
+      }
+    ],
+    "constraints": [
+      "0 <= word1.length, word2.length <= 500",
+      "word1 and word2 consist of lowercase English letters"
+    ],
+    "starterCode": {
+      "python": "def minDistance(word1: str, word2: str) -> int:\n    # Your solution here (2D DP)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nprint(minDistance(lines[0], lines[1]))",
+      "javascript": "function minDistance(word1, word2) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconsole.log(minDistance(lines[0], lines[1]));"
+    },
+    "testCases": [
+      {
+        "stdin": "horse\nros",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "intention\nexecution",
+        "expectedOutput": "5"
+      }
+    ]
+  },
+  {
+    "id": 312,
+    "title": "Burst Balloons",
+    "difficulty": "Hard",
+    "category": "Dynamic Programming",
+    "description": "You are given n balloons, indexed from 0 to n - 1. Each balloon is painted with a number on it represented by an array nums. You are asked to burst all the balloons.\n\nIf you burst the ith balloon, you will get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds of the array, then treat it as if there is a balloon with a 1 painted on it.\n\nReturn the maximum coins you can collect by bursting the balloons wisely.\n\nHint: Think backwards — instead of which balloon to burst first, think which to burst last in a subrange. Use interval DP.",
+    "examples": [
+      {
+        "input": "nums = [3,1,5,8]",
+        "output": "167",
+        "explanation": "nums = [3,1,5,8] --> [3,5,8] --> [3,8] --> [8] --> [] coins = 3*1*5 + 3*5*8 + 1*3*8 + 1*8*1 = 167"
+      },
+      {
+        "input": "nums = [1,5]",
+        "output": "10"
+      }
+    ],
+    "constraints": [
+      "n == nums.length",
+      "1 <= n <= 300",
+      "0 <= nums[i] <= 100"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef maxCoins(nums: List[int]) -> int:\n    # Your solution here (interval DP)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(maxCoins(nums))",
+      "javascript": "function maxCoins(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(maxCoins(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "3 1 5 8",
+        "expectedOutput": "167"
+      },
+      {
+        "stdin": "1 5",
+        "expectedOutput": "10"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.\n\nHint: Use Kadane's Algorithm — maintain a running sum, reset when it goes negative.",
+    "examples": [
+      {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "The subarray [4,-1,2,1] has the largest sum 6."
+      },
+      {
+        "input": "nums = [1]",
+        "output": "1"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef maxSubArray(nums: List[int]) -> int:\n    # Your solution here (Kadane's algorithm)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(maxSubArray(nums))",
+      "javascript": "function maxSubArray(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(maxSubArray(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "-2 1 -3 4 -1 2 1 -5 4",
+        "expectedOutput": "6"
+      },
+      {
+        "stdin": "1",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "5 4 -1 7 8",
+        "expectedOutput": "23"
+      }
+    ]
+  },
+  {
+    "id": 435,
+    "title": "Non-overlapping Intervals",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "description": "Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.\n\nNote that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.",
+    "examples": [
+      {
+        "input": "intervals = [[1,2],[2,3],[3,4],[1,3]]",
+        "output": "1",
+        "explanation": "[1,3] can be removed and the rest of the intervals are non-overlapping."
+      },
+      {
+        "input": "intervals = [[1,2],[1,2],[1,2]]",
+        "output": "2"
+      }
+    ],
+    "constraints": [
+      "1 <= intervals.length <= 10^5",
+      "intervals[i].length == 2",
+      "-5 * 10^4 <= starti < endi <= 5 * 10^4"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef eraseOverlapIntervals(intervals: List[List[int]]) -> int:\n    # Your solution here (greedy: sort by end time)\n    pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nn = int(lines[0])\nintervals = [list(map(int, lines[i+1].split())) for i in range(n)]\nprint(eraseOverlapIntervals(intervals))",
+      "javascript": "function eraseOverlapIntervals(intervals) {\n    // Your solution here\n}\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst n = Number(lines[0]);\nconst ivs=[];\nfor(let i=1;i<=n;i++) ivs.push(lines[i].split(' ').map(Number));\nconsole.log(eraseOverlapIntervals(ivs));"
+    },
+    "testCases": [
+      {
+        "stdin": "4\n1 2\n2 3\n3 4\n1 3",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "3\n1 2\n1 2\n1 2",
+        "expectedOutput": "2"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "category": "Data Structure Design",
+    "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.\n\nImplement the LRUCache class:\n- LRUCache(int capacity) Initialize the LRU cache with positive size capacity.\n- int get(int key) Return the value of the key if the key exists, otherwise return -1.\n- void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.\n\nThe functions get and put must each run in O(1) average time complexity.",
+    "examples": [
+      {
+        "input": "LRUCache(2), put(1,1), put(2,2), get(1)=1, put(3,3), get(2)=-1, get(3)=3",
+        "output": "[1,-1,3]"
+      }
+    ],
+    "constraints": [
+      "1 <= capacity <= 3000",
+      "0 <= key <= 10^4",
+      "0 <= value <= 10^5",
+      "At most 2 * 10^5 calls will be made to get and put"
+    ],
+    "starterCode": {
+      "python": "from collections import OrderedDict\n\nclass LRUCache:\n    def __init__(self, capacity: int):\n        # Your initialization here\n        pass\n\n    def get(self, key: int) -> int:\n        # Your solution here\n        pass\n\n    def put(self, key: int, value: int) -> None:\n        # Your solution here\n        pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\ncapacity = int(lines[0])\ncache = LRUCache(capacity)\nfor line in lines[1:]:\n    parts = line.split()\n    if parts[0] == 'get':\n        print(cache.get(int(parts[1])))\n    elif parts[0] == 'put':\n        cache.put(int(parts[1]), int(parts[2]))",
+      "javascript": "class LRUCache {\n    constructor(capacity) {\n        // Your initialization here\n    }\n    get(key) {\n        // Your solution here\n    }\n    put(key, value) {\n        // Your solution here\n    }\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst cache = new LRUCache(Number(lines[0]));\nfor(let i=1;i<lines.length;i++){\n    const p=lines[i].split(' ');\n    if(p[0]==='get') console.log(cache.get(Number(p[1])));\n    else cache.put(Number(p[1]),Number(p[2]));\n}"
+    },
+    "testCases": [
+      {
+        "stdin": "2\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 2\nget 3",
+        "expectedOutput": "1\n-1\n3"
+      }
+    ]
+  },
+  {
+    "id": 380,
+    "title": "Insert Delete GetRandom O(1)",
+    "difficulty": "Medium",
+    "category": "Data Structure Design",
+    "description": "Implement the RandomizedSet class:\n- RandomizedSet() Initializes the RandomizedSet object.\n- bool insert(int val) Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.\n- bool remove(int val) Removes an item val from the set if present. Returns true if the item was present, false otherwise.\n- int getRandom() Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.\n\nYou must implement the functions of the class such that each function works in average O(1) time complexity.",
+    "examples": [
+      {
+        "input": "insert(1)=true, remove(2)=false, insert(2)=true, getRandom()=1or2, remove(1)=true, insert(2)=false, getRandom()=2",
+        "output": "varies"
+      }
+    ],
+    "constraints": [
+      "-2^31 <= val <= 2^31 - 1",
+      "At most 2 * 10^5 calls will be made to insert, remove, and getRandom",
+      "There will be at least one element in the data structure when getRandom is called"
+    ],
+    "starterCode": {
+      "python": "import random\n\nclass RandomizedSet:\n    def __init__(self):\n        # Your initialization here\n        pass\n\n    def insert(self, val: int) -> bool:\n        # Your solution here\n        pass\n\n    def remove(self, val: int) -> bool:\n        # Your solution here\n        pass\n\n    def getRandom(self) -> int:\n        # Your solution here\n        pass\n\n# --- stdin test harness ---\nimport sys\nlines = sys.stdin.read().strip().split('\\n')\nrs = RandomizedSet()\nfor line in lines:\n    parts = line.split()\n    if parts[0] == 'insert':\n        print(str(rs.insert(int(parts[1]))).lower())\n    elif parts[0] == 'remove':\n        print(str(rs.remove(int(parts[1]))).lower())\n    elif parts[0] == 'getRandom':\n        print(rs.getRandom())",
+      "javascript": "class RandomizedSet {\n    constructor() {\n        // Your initialization here\n    }\n    insert(val) {\n        // Your solution here\n    }\n    remove(val) {\n        // Your solution here\n    }\n    getRandom() {\n        // Your solution here\n    }\n}\n\nconst lines = require('fs').readFileSync('/dev/stdin','utf8').trim().split('\\n');\nconst rs = new RandomizedSet();\nfor(const line of lines){\n    const p=line.split(' ');\n    if(p[0]==='insert') console.log(String(rs.insert(Number(p[1]))).toLowerCase());\n    else if(p[0]==='remove') console.log(String(rs.remove(Number(p[1]))).toLowerCase());\n    else console.log(rs.getRandom());\n}"
+    },
+    "testCases": [
+      {
+        "stdin": "insert 1\nremove 2\ninsert 2",
+        "expectedOutput": "true\nfalse\ntrue"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "title": "Single Number",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.\n\nYou must implement a solution with a linear runtime complexity and use only constant extra space.\n\nHint: XOR of a number with itself is 0. XOR of a number with 0 is the number itself.",
+    "examples": [
+      {
+        "input": "nums = [2,2,1]",
+        "output": "1"
+      },
+      {
+        "input": "nums = [4,1,2,1,2]",
+        "output": "4"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 3 * 10^4",
+      "-3 * 10^4 <= nums[i] <= 3 * 10^4",
+      "Each element in the array appears twice except for one element which appears only once"
+    ],
+    "starterCode": {
+      "python": "from typing import List\n\ndef singleNumber(nums: List[int]) -> int:\n    # Your solution here (XOR trick)\n    pass\n\n# --- stdin test harness ---\nimport sys\nnums = list(map(int, sys.stdin.read().strip().split()))\nprint(singleNumber(nums))",
+      "javascript": "function singleNumber(nums) {\n    // Your solution here\n}\nconst nums = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ').map(Number);\nconsole.log(singleNumber(nums));"
+    },
+    "testCases": [
+      {
+        "stdin": "2 2 1",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "4 1 2 1 2",
+        "expectedOutput": "4"
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "title": "Number of 1 Bits",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "description": "Given a positive integer n, write a function that returns the number of set bits in its binary representation (also known as the Hamming weight).",
+    "examples": [
+      {
+        "input": "n = 11",
+        "output": "3",
+        "explanation": "The input binary string 1011 has a total of three set bits."
+      },
+      {
+        "input": "n = 128",
+        "output": "1",
+        "explanation": "The input binary string 10000000 has a total of one set bit."
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 2^31 - 1"
+    ],
+    "starterCode": {
+      "python": "def hammingWeight(n: int) -> int:\n    # Your solution here (bit tricks)\n    pass\n\n# --- stdin test harness ---\nimport sys\nn = int(sys.stdin.read().strip())\nprint(hammingWeight(n))",
+      "javascript": "function hammingWeight(n) {\n    // Your solution here\n}\nconst n = Number(require('fs').readFileSync('/dev/stdin','utf8').trim());\nconsole.log(hammingWeight(n));"
+    },
+    "testCases": [
+      {
+        "stdin": "11",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "128",
+        "expectedOutput": "1"
+      },
+      {
+        "stdin": "2147483645",
+        "expectedOutput": "30"
+      }
+    ]
+  },
+  {
+    "id": 371,
+    "title": "Sum of Two Integers",
+    "difficulty": "Medium",
+    "category": "Bit Manipulation",
+    "description": "Given two integers a and b, return the sum of the two integers without using the operators + and -.\n\nHint: Use bit manipulation. The sum without carry is a XOR b. The carry is (a AND b) shifted left by 1. Repeat until carry is 0.",
+    "examples": [
+      {
+        "input": "a = 1, b = 2",
+        "output": "3"
+      },
+      {
+        "input": "a = 2, b = 3",
+        "output": "5"
+      }
+    ],
+    "constraints": [
+      "-1000 <= a, b <= 1000"
+    ],
+    "starterCode": {
+      "python": "def getSum(a: int, b: int) -> int:\n    # Your solution here (bit manipulation, no + or -)\n    # Hint: use XOR for sum bits, AND+shift for carry\n    # For Python, mask with 0xFFFFFFFF for 32-bit arithmetic\n    pass\n\n# --- stdin test harness ---\nimport sys\nparts = sys.stdin.read().strip().split()\nprint(getSum(int(parts[0]), int(parts[1])))",
+      "javascript": "function getSum(a, b) {\n    // Your solution here\n}\nconst parts = require('fs').readFileSync('/dev/stdin','utf8').trim().split(' ');\nconsole.log(getSum(Number(parts[0]), Number(parts[1])));"
+    },
+    "testCases": [
+      {
+        "stdin": "1 2",
+        "expectedOutput": "3"
+      },
+      {
+        "stdin": "2 3",
+        "expectedOutput": "5"
+      }
+    ]
+  }
+]
