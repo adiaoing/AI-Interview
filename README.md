@@ -1,4 +1,4 @@
-﻿# Friday - AI 模拟面试教练
+﻿# AI Interview - AI 模拟面试教练
 
 Friday 是一个全栈 AI 模拟面试项目，支持行为面试、角色定制面试和技术编程面试。项目包含 Next.js 前端、FastAPI 后端、Supabase 数据库、RAG 检索和本地代码执行能力。
 
